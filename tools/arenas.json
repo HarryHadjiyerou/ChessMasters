@@ -1,0 +1,35 @@
+{
+  "notes": "One entry per arena. rough = approximate OUTER frame corners (top, right, bottom, left) in image px, only used as the search area. dark = HSV limits for the painted dark squares. frameOffset = painted frame width in squares (foreground cut and shadow catcher). glows = flickering brazier flames (x, y, radius). Run: tools\\.venv\\Scripts\\python tools/build_arena.py <id>",
+  "arenas": {
+    "palace-gardens": {
+      "image": "Golden Chessboard in a Palace Garden.png", "prefix": "palace_garden",
+      "rough": [[900, 205], [1385, 545], [600, 800], [255, 360]],
+      "dark": { "v": 135, "s": 140 }, "frameOffset": 0.42,
+      "glows": [[737, 62, 38], [1098, 178, 40], [1438, 318, 40], [1340, 455, 22]]
+    },
+    "dark-kingdom": {
+      "image": "Empty Marble Chessboard Citadel at Dusk.png", "prefix": "dark_kingdom",
+      "rough": [[900, 200], [1445, 580], [610, 840], [225, 355]],
+      "dark": { "v": 95, "s": 255 }, "frameOffset": 0.3,
+      "glows": [[740, 60, 40], [1470, 320, 40], [290, 120, 26], [1265, 315, 22]]
+    },
+    "frozen-kingdom": {
+      "image": "Empty Chessboard in an Icy Penguin Kingdom.png", "prefix": "frozen_kingdom",
+      "rough": [[900, 195], [1470, 595], [635, 860], [195, 340]],
+      "dark": { "v": 135, "s": 255 }, "frameOffset": 0.3,
+      "glows": [[915, 125, 30], [420, 105, 30], [135, 320, 30], [1395, 440, 28], [1485, 755, 36], [215, 600, 24]]
+    },
+    "jungle-temple": {
+      "image": "Abandoned Jungle Chessboard Ruins.png", "prefix": "jungle_temple",
+      "rough": [[900, 185], [1450, 575], [600, 835], [165, 320]],
+      "dark": { "v": 95, "s": 255 }, "frameOffset": 0.3,
+      "glows": [[912, 140, 30], [1040, 195, 28], [218, 345, 28], [1475, 520, 32], [272, 720, 30], [618, 845, 32]]
+    },
+    "arabian-palace": {
+      "image": "Sunset Chessboard at the Desert Palace.png", "prefix": "arabian_palace",
+      "rough": [[915, 205], [1465, 580], [630, 835], [205, 345]],
+      "dark": { "v": 100, "s": 255 }, "frameOffset": 0.3,
+      "glows": [[915, 130, 30], [125, 185, 34], [1460, 440, 36], [1475, 780, 40], [237, 935, 34]]
+    }
+  }
+}

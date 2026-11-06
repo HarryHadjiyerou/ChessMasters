@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "notes": "Conditions compare a stat with a value. Stats: playerMoves, playerTimeMs, captured.<p|n|b|r|q>, lost.<p|n|b|r|q>, lostTotal, promotions, checksGiven. 'goals' must all hold when the player wins; any 'failWhen' condition fails the challenge immediately; 'stars' lists extra conditions for 2 and 3 stars. Points are awarded per star.",
+  "challenges": [
+    {
+      "id": "speed-win",
+      "icon": "bolt",
+      "name": "Speed Win",
+      "description": "Win within 25 moves.",
+      "pointsPerStar": 50,
+      "goals": [{ "stat": "playerMoves", "op": "<=", "value": 25 }],
+      "failWhen": [{ "stat": "playerMoves", "op": ">", "value": 25 }],
+      "stars": [[{ "stat": "playerMoves", "op": "<=", "value": 20 }], [{ "stat": "playerMoves", "op": "<=", "value": 15 }]],
+      "progress": [{ "label": "Moves", "stat": "playerMoves", "target": 25, "format": "count" }]
+    },
+    {
+      "id": "beat-the-clock",
+      "icon": "hourglass",
+      "name": "Beat the Clock",
+      "description": "Win using less than 10 minutes of your own clock. Duels don't count.",
+      "pointsPerStar": 50,
+      "goals": [{ "stat": "playerTimeMs", "op": "<", "value": 600000 }],
+      "failWhen": [{ "stat": "playerTimeMs", "op": ">=", "value": 600000 }],
+      "stars": [[{ "stat": "playerTimeMs", "op": "<", "value": 420000 }], [{ "stat": "playerTimeMs", "op": "<", "value": 240000 }]],
+      "progress": [{ "label": "Your time", "stat": "playerTimeMs", "target": 600000, "format": "time" }]
+    },
+    {
+      "id": "bishop-hunter",
+      "icon": "mitre",
+      "name": "Bishop Hunter",
+      "description": "Capture both enemy bishops and win.",
+      "pointsPerStar": 60,
+      "goals": [{ "stat": "captured.b", "op": ">=", "value": 2 }],
+      "failWhen": [],
+      "stars": [[{ "stat": "playerMoves", "op": "<=", "value": 40 }], [{ "stat": "playerMoves", "op": "<=", "value": 30 }]],
+      "progress": [{ "label": "Bishops captured", "stat": "captured.b", "target": 2, "format": "count" }]
+    },
+    {
+      "id": "pawn-power",
+      "icon": "pawn",
+      "name": "Pawn Power",
+      "description": "Promote a pawn and win.",
+      "pointsPerStar": 60,
+      "goals": [{ "stat": "promotions", "op": ">=", "value": 1 }],
+      "failWhen": [],
+      "stars": [[{ "stat": "playerMoves", "op": "<=", "value": 45 }], [{ "stat": "promotions", "op": ">=", "value": 2 }]],
+      "progress": [{ "label": "Promotions", "stat": "promotions", "target": 1, "format": "count" }]
+    },
+    {
+      "id": "untouchable-queen",
+      "icon": "shield",
+      "name": "Untouchable Queen",
+      "description": "Win without losing your queen.",
+      "pointsPerStar": 50,
+      "goals": [{ "stat": "lost.q", "op": "==", "value": 0 }],
+      "failWhen": [{ "stat": "lost.q", "op": ">=", "value": 1 }],
+      "stars": [[{ "stat": "lostTotal", "op": "<=", "value": 6 }], [{ "stat": "lostTotal", "op": "<=", "value": 3 }]],
+      "progress": [{ "label": "Queen safe", "stat": "lost.q", "target": 0, "format": "safe" }]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "image_size": [
+    1847,
+    851
+  ],
+  "screens": {
+    "start": {
+      "image": "assets/screens/start.webp",
+      "blur": "assets/screens/start_blur.jpg",
+      "hotspots": {}
+    },
+    "side": {
+      "image": "assets/screens/side.webp",
+      "blur": "assets/screens/side_blur.jpg",
+      "hotspots": {
+        "light": {
+          "left": 33.261,
+          "top": 72.3,
+          "width": 16.143,
+          "height": 11.972
+        },
+        "dark": {
+          "left": 50.596,
+          "top": 72.3,
+          "width": 16.36,
+          "height": 11.972
+        }
+      }
+    },
+    "arena": {
+      "image": "assets/screens/arena.webp",
+      "blur": "assets/screens/arena_blur.jpg",
+      "hotspots": {
+        "palace-gardens": {
+          "left": 17.217,
+          "top": 71.68,
+          "width": 12.453,
+          "height": 23.032
+        },
+        "dark-kingdom": {
+          "left": 30.103,
+          "top": 71.68,
+          "width": 12.453,
+          "height": 23.032
+        },
+        "frozen-kingdom": {
+          "left": 43.368,
+          "top": 71.68,
+          "width": 12.561,
+          "height": 23.032
+        },
+        "jungle-temple": {
+          "left": 56.849,
+          "top": 71.68,
+          "width": 12.453,
+          "height": 23.032
+        },
+        "arabian-palace": {
+          "left": 69.951,
+          "top": 71.68,
+          "width": 12.561,
+          "height": 23.032
+        }
+      }
+    },
+    "play": {
+      "image": "assets/screens/play.webp",
+      "blur": "assets/screens/play_blur.jpg",
+      "hotspots": {
+        "play": {
+          "left": 39.307,
+          "top": 75.558,
+          "width": 20.899,
+          "height": 13.514
+        }
+      }
+    }
+  }
+}

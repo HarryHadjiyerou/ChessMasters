@@ -1,0 +1,250 @@
+{
+  "version": 2,
+  "pieces": [
+    {
+      "faction": "dark",
+      "piece": "bishop",
+      "file": "assets/pieces/dark_bishop.glb",
+      "height": 1.7,
+      "centaur": false,
+      "clips": [
+        "Running",
+        "Walking",
+        "Alert",
+        "mage_soell_cast",
+        "mage_soell_cast_7",
+        "Gentlemans_Bow",
+        "Dead",
+        "FunnyDancing_02",
+        "Hip_Hop_Dance_2",
+        "Charged_Ground_Slam"
+      ]
+    },
+    {
+      "faction": "dark",
+      "piece": "king",
+      "file": "assets/pieces/dark_king.glb",
+      "height": 1.99,
+      "centaur": false,
+      "clips": [
+        "Running",
+        "Walking",
+        "Charged_Ground_Slam",
+        "Hip_Hop_Dance_2",
+        "Right_Hand_Sword_Slash",
+        "Show_Both_Arm_Muscles",
+        "Idle_3",
+        "Fall_Dead_from_Abdominal_Injury",
+        "Gentlemans_Bow"
+      ]
+    },
+    {
+      "faction": "dark",
+      "piece": "knight",
+      "file": "assets/pieces/dark_knight.glb",
+      "height": 1.7,
+      "centaur": true,
+      "clips": [
+        "Alert",
+        "Running",
+        "Right_Hand_Sword_Slash",
+        "Skill_01",
+        "Show_Both_Arm_Muscles",
+        "Motivational_Cheer",
+        "Cheer_with_Both_Hands",
+        "Charged_Ground_Slam",
+        "Finger_Wag_No"
+      ]
+    },
+    {
+      "faction": "dark",
+      "piece": "pawn",
+      "file": "assets/pieces/dark_pawn.glb",
+      "height": 1.4,
+      "centaur": false,
+      "clips": [
+        "Running",
+        "Cheer_with_Both_Hands_Up",
+        "Excited_Walk_M",
+        "Flying_Fist_Kick",
+        "FunnyDancing_02",
+        "Grip_and_Throw_Down",
+        "Happy_jump_f",
+        "Hip_Hop_Dance_2",
+        "Motivational_Cheer",
+        "Idle_Simple",
+        "Skill_01",
+        "Right_Hand_Sword_Slash",
+        "Show_Both_Arm_Muscles",
+        "Chest_Pound_Taunt",
+        "Dead",
+        "Boxing_Practice",
+        "Victory_Fist_Pump",
+        "Finger_Wag_No",
+        "Elbow_Strike",
+        "Charged_Ground_Slam",
+        "Backflip",
+        "Gangnam_Groove",
+        "Handstand_Flip",
+        "Fall_Dead_from_Abdominal_Injury"
+      ]
+    },
+    {
+      "faction": "dark",
+      "piece": "queen",
+      "file": "assets/pieces/dark_queen.glb",
+      "height": 1.61,
+      "centaur": false,
+      "clips": [
+        "Running",
+        "Dead",
+        "Flirty_Strut_inplace",
+        "Gentlemans_Bow",
+        "Idle_Simple",
+        "mage_soell_cast_6",
+        "Counterstrike",
+        "Hip_Hop_Dance_2"
+      ]
+    },
+    {
+      "faction": "dark",
+      "piece": "rook",
+      "file": "assets/pieces/dark_rook.glb",
+      "height": 1.7,
+      "centaur": false,
+      "clips": [
+        "Alert",
+        "Walking",
+        "Running",
+        "Grip_and_Throw_Down",
+        "Charged_Ground_Slam",
+        "Chest_Pound_Taunt",
+        "Dead",
+        "FunnyDancing_02",
+        "Show_Both_Arm_Muscles"
+      ]
+    },
+    {
+      "faction": "light",
+      "piece": "bishop",
+      "file": "assets/pieces/light_bishop.glb",
+      "height": 1.7,
+      "centaur": false,
+      "clips": [
+        "Running",
+        "Dead",
+        "Formal_Bow",
+        "Victory_Cheer",
+        "mage_soell_cast_3",
+        "Idle_3",
+        "walking_2",
+        "mage_soell_cast_6",
+        "Gangnam_Groove",
+        "FunnyDancing_02"
+      ]
+    },
+    {
+      "faction": "light",
+      "piece": "king",
+      "file": "assets/pieces/light_king.glb",
+      "height": 1.7,
+      "centaur": false,
+      "clips": [
+        "Running",
+        "Walking",
+        "Attack",
+        "Double_Combo_Attack",
+        "Fall_Dead_from_Abdominal_Injury",
+        "Idle_3",
+        "Victory_Cheer",
+        "Backflip",
+        "Formal_Bow"
+      ]
+    },
+    {
+      "faction": "light",
+      "piece": "knight",
+      "file": "assets/pieces/light_knight.glb",
+      "height": 1.7,
+      "centaur": true,
+      "clips": [
+        "Idle_3",
+        "Running",
+        "Right_Hand_Sword_Slash",
+        "Double_Combo_Attack",
+        "Victory_Fist_Pump",
+        "Cheer_with_Both_Hands_Up",
+        "Victory_Cheer",
+        "Finger_Wag_No",
+        "Charged_Ground_Slam"
+      ]
+    },
+    {
+      "faction": "light",
+      "piece": "pawn",
+      "file": "assets/pieces/light_pawn.glb",
+      "height": 1.46,
+      "centaur": false,
+      "clips": [
+        "Running",
+        "Walking",
+        "Backflip",
+        "Backflip_Sweep_Kick",
+        "Finger_Wag_No",
+        "FunnyDancing_02",
+        "Gangnam_Groove",
+        "Idle_Simple",
+        "Flying_Fist_Kick",
+        "Elbow_Strike",
+        "Double_Combo_Attack",
+        "Victory_Fist_Pump",
+        "Cheer_with_Both_Hands_Up",
+        "Dead",
+        "Cheer_with_Both_Hands",
+        "Motivational_Cheer",
+        "Happy_jump_f",
+        "Cheer_with_Both_Hands_1",
+        "Victory_Cheer",
+        "Hip_Hop_Dance_2",
+        "Handstand_Flip",
+        "Charged_Ground_Slam",
+        "Fall_Dead_from_Abdominal_Injury"
+      ]
+    },
+    {
+      "faction": "light",
+      "piece": "queen",
+      "file": "assets/pieces/light_queen.glb",
+      "height": 1.65,
+      "centaur": false,
+      "clips": [
+        "Running",
+        "Walking_Woman",
+        "Idle_Simple",
+        "Counterstrike",
+        "Elbow_Strike",
+        "Happy_jump_f",
+        "Dead",
+        "Hip_Hop_Dance_2"
+      ]
+    },
+    {
+      "faction": "light",
+      "piece": "rook",
+      "file": "assets/pieces/light_rook.glb",
+      "height": 1.7,
+      "centaur": false,
+      "clips": [
+        "Idle_3",
+        "Walking",
+        "Running",
+        "Charged_Ground_Slam",
+        "Double_Combo_Attack",
+        "Show_Both_Arm_Muscles",
+        "Dead",
+        "Hip_Hop_Dance_2",
+        "Gangnam_Groove"
+      ]
+    }
+  ]
+}

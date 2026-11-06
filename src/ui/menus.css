@@ -1,0 +1,267 @@
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  overflow: hidden;
+  background: #120b08;
+  font-family: 'Cinzel', Georgia, serif;
+  color: var(--cream);
+}
+.menu.visible { display: block; animation: menu-in 0.45s ease-out; }
+.menu.leaving { animation: menu-out 0.45s ease-in forwards; }
+@keyframes menu-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes menu-out { to { opacity: 0; } }
+
+.menu-bg { position: absolute; inset: 0; background: center / cover no-repeat; }
+.menu-frame { position: absolute; transition: opacity 0.25s ease; box-shadow: 0 0 80px rgba(0, 0, 0, 0.6); }
+.menu-frame.fading { opacity: 0; }
+.menu-img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; }
+.menu-layer { position: absolute; inset: 0; }
+
+/* Invisible hotspots over painted buttons */
+.hotspot {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.hotspot-hex { clip-path: polygon(3% 50%, 10% 4%, 90% 4%, 97% 50%, 90% 96%, 10% 96%); }
+.hotspot-tile { border-radius: 6%; }
+.hotspot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 240, 190, 0.6), rgba(255, 205, 100, 0.3) 55%, rgba(255, 190, 80, 0.12) 80%);
+  mix-blend-mode: screen;
+}
+.hotspot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.45) 50%, transparent 65%);
+  background-size: 250% 100%;
+  mix-blend-mode: screen;
+}
+.hotspot:hover::before, .hotspot:focus-visible::before { opacity: 1; }
+.hotspot:hover::after, .hotspot:focus-visible::after { opacity: 1; animation: shine 1.1s ease-out; }
+.hotspot:active::before { opacity: 1; background: rgba(60, 20, 0, 0.28); mix-blend-mode: multiply; }
+.hotspot-tile:focus-visible, .hotspot-tile:hover { box-shadow: 0 0 0 3px rgba(255, 220, 130, 0.9), 0 0 28px rgba(255, 200, 90, 0.8); }
+.hotspot-hex:focus-visible::before { background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.5), rgba(255, 210, 110, 0.25) 60%, transparent 80%); }
+@keyframes shine { from { background-position: 150% 0; } to { background-position: -60% 0; } }
+
+.hotspot.locked { cursor: not-allowed; }
+.hotspot.locked:hover::before { background: rgba(30, 20, 40, 0.25); mix-blend-mode: multiply; }
+.tile-lock {
+  position: absolute;
+  left: 6%; right: 6%; top: 8%; bottom: 22%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3em;
+  background: rgba(15, 8, 20, 0.55);
+  border-radius: 4%;
+  pointer-events: none;
+}
+.tile-lock-icon { font-size: 2.1em; filter: drop-shadow(0 2px 2px #000); }
+.tile-lock-text {
+  font-weight: 700; font-size: 0.85em; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); background: rgba(90, 11, 18, 0.9); border: 1px solid var(--gold-deep);
+  padding: 0.15em 0.6em; border-radius: 0.3em;
+}
+.shake { animation: shake 0.4s; }
+@keyframes shake { 20%, 60% { transform: translateX(-4px); } 40%, 80% { transform: translateX(4px); } }
+
+.menu-prompt {
+  position: absolute;
+  left: 0; right: 0; bottom: 7%;
+  text-align: center;
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-size: 2.1em;
+  font-weight: 700;
+  color: #fff3cf;
+  text-shadow: 0 0 12px rgba(255, 190, 80, 0.9), 0 3px 0 #5a0b12, 0 4px 12px #000;
+  animation: pulse 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes pulse { 0%, 100% { opacity: 0.55; transform: scale(0.97); } 50% { opacity: 1; transform: scale(1.03); } }
+
+/* ===== Menu controls and the New Game screen, in the in-game HUD style (royal plates,
+   gold medallions, portrait banners). Shared pieces (.rp, .medal, .portrait, .ribbon-title,
+   .plate-btn) come from hud.css. Sizes are in em: the menu frame sets font-size from its height. */
+.menu-back { display: none; }
+.menu-back .medal { width: 3.6em; height: 3.6em; }
+.menu-points {
+  position: absolute; right: 1.6%; top: 3.4%;
+  --c: 0.6em;
+  display: flex; align-items: center; gap: 0.45em;
+  padding: 0.55em 1.3em 0.55em 1em;
+  font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cream);
+}
+.menu-points-star svg { width: 1.4em; height: 1.4em; display: block; }
+
+.menu-modal {
+  position: absolute; inset: 0;
+  display: none; align-items: center; justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(15, 6, 3, 0.45), rgba(15, 6, 3, 0.8));
+}
+.menu-modal.open { display: flex; animation: menu-in 0.25s ease-out; }
+
+.setup {
+  --c: 1.4em;
+  --w: 0.26em;
+  width: 74em; max-width: 94%;
+  padding: 1.2em 2em 1.4em;
+  animation: hud-pop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+.setup-head { display: flex; flex-direction: column; align-items: center; gap: 0.3em; margin-bottom: 0.6em; }
+.setup-head .ribbon-title { font-size: 1.5em; font-family: 'Cinzel Decorative', 'Cinzel', serif; }
+.setup-sub { font-size: 0.85em; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; }
+.setup-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.2em; }
+.setup-col { display: flex; flex-direction: column; filter: drop-shadow(0 0.25em 0.35em rgba(0, 0, 0, 0.55)); }
+.setup-label {
+  display: flex; align-items: center; gap: 0.6em;
+  margin: 0.8em 0 0.45em;
+  font-weight: 700; font-size: 0.82em; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+}
+.setup-label::after { content: ''; flex: 1; height: 0.1em; background: linear-gradient(90deg, var(--gold-deep), transparent); }
+
+/* Help toggles: medallion + text + little switch. */
+.help-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; }
+.help-toggle { --c: 0.9em; display: flex; align-items: center; gap: 0.7em; padding: 0.6em 0.9em 0.6em 0.7em; text-align: left; border: 0; cursor: pointer; color: var(--cream); font-family: 'Cinzel', Georgia, serif; font-weight: 700; transition: filter 0.15s; }
+.help-toggle:hover, .help-toggle:focus-visible { outline: none; filter: brightness(1.2) drop-shadow(0 0 0.5em rgba(255, 210, 110, 0.8)); }
+.help-toggle .medal { width: 3.2em; height: 3.2em; flex: none; cursor: inherit; }
+.help-toggle .opp-text { flex: 1; }
+.switch { width: 2.6em; height: 1.4em; border-radius: 0.7em; background: #3a302a; border: 0.12em solid var(--gold-deep); position: relative; flex: none; transition: background 0.2s; }
+.switch::after { content: ''; position: absolute; top: 0.1em; left: 0.12em; width: 1em; height: 1em; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #fff1b8, #a8701f); transition: transform 0.2s; }
+.help-toggle[aria-pressed='true'] .switch { background: #2f9e4f; }
+.help-toggle[aria-pressed='true'] .switch::after { transform: translateX(1.2em); }
+.help-toggle[aria-pressed='true'] .medal { background: radial-gradient(circle at 50% 35%, #2f6a3c, #0f2a16 70%) padding-box, var(--frame) border-box; box-shadow: 0 0 0.8em rgba(120, 255, 150, 0.7); }
+
+/* Selectable plates: dark by default, red when chosen (like the TURN ribbon), gold glow on hover. */
+.opp, .level, .plate-btn.rp {
+  border: 0; cursor: pointer; color: var(--cream);
+  font-family: 'Cinzel', Georgia, serif; font-weight: 700;
+  transition: transform 0.12s, filter 0.15s;
+}
+.opp:hover, .level:hover, .plate-btn.rp:hover, .opp:focus-visible, .level:focus-visible, .plate-btn.rp:focus-visible { outline: none; filter: brightness(1.2) drop-shadow(0 0 0.5em rgba(255, 210, 110, 0.8)); }
+.opp:active, .level:active, .plate-btn.rp:active { transform: translateY(0.08em) scale(0.98); }
+.opp[aria-pressed='true'], .level[aria-pressed='true'] { --rp-fill: linear-gradient(180deg, #c91c2a 0%, #8a101b 55%, #5a0b12 100%); }
+.opp[aria-pressed='true']::after, .level[aria-pressed='true']::after { background: linear-gradient(180deg, #fff3c4, #f2c45e); }
+
+.opp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; }
+.opp { --c: 0.9em; display: flex; align-items: center; gap: 0.8em; padding: 0.7em 1em 0.7em 0.8em; text-align: left; }
+.opp-faces { display: flex; }
+.opp-faces .portrait { width: 3.8em; height: 3.8em; }
+.opp-faces .portrait.second { margin-left: -1.2em; }
+.opp-name { font-size: 1.15em; letter-spacing: 0.06em; text-transform: uppercase; }
+.opp-sub { font-size: 0.72em; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.15em; }
+
+.level-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6em; transition: opacity 0.2s; }
+.level-row.disabled { opacity: 0.35; pointer-events: none; }
+.level { --c: 0.8em; display: flex; flex-direction: column; align-items: center; gap: 0.3em; padding: 0.75em 0.4em 0.6em; }
+.level .portrait { width: 4.4em; height: 4.4em; }
+.level-name { font-size: 0.82em; letter-spacing: 0.06em; text-transform: uppercase; }
+.level-crowns { display: flex; gap: 0.1em; }
+.level-crowns .crown svg { width: 0.95em; height: 0.95em; display: block; filter: grayscale(1) brightness(0.45); }
+.level-crowns .crown.on svg { filter: none; }
+
+.medal-row { display: flex; justify-content: space-around; gap: 0.4em; }
+.medal-row .medal { width: 4.2em; height: 4.2em; }
+.medal-row .medal-wrap { min-width: 5.2em; }
+.medal-row .medal-label { font-size: 0.72em; text-align: center; }
+.medal[aria-pressed='true'] {
+  background: radial-gradient(circle at 50% 35%, #d42a38, #6e0c15 70%) padding-box, var(--frame) border-box;
+  box-shadow: inset 0 0 0 0.08em rgba(255, 230, 170, 0.6), 0 0 1em rgba(255, 190, 90, 0.85), 0 0.3em 0.7em rgba(0, 0, 0, 0.6);
+}
+.medal-num { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.55em; line-height: 1; color: var(--gold-hi); text-shadow: 0 0.06em 0 #3a2208, 0 0 0.3em rgba(0, 0, 0, 0.6); }
+.medal-stars { font-size: 0.75em; color: var(--gold); letter-spacing: 0.1em; min-height: 1em; text-shadow: 0 1px 2px #000; }
+.challenge-row { flex-wrap: nowrap; }
+.challenge-row .medal { width: 3.7em; height: 3.7em; }
+.challenge-row .medal-wrap { min-width: 0; flex: 1; }
+.challenge-row .medal-label { font-size: 0.62em; line-height: 1.15; max-width: 7em; }
+
+.challenge-card {
+  --c: 1em;
+  margin-top: 0.7em;
+  display: grid; grid-template-columns: auto 1fr; gap: 1em; align-items: center;
+  padding: 0.9em 1.2em;
+  min-height: 5.6em;
+}
+.challenge-card .medal-card { width: 4.4em; height: 4.4em; cursor: default; }
+.card-title { font-weight: 700; font-size: 1.1em; letter-spacing: 0.06em; text-transform: uppercase; }
+.card-desc { font-family: Georgia, serif; font-size: 0.88em; margin: 0.2em 0; line-height: 1.3; }
+.card-meta { font-size: 0.74em; color: var(--gold); letter-spacing: 0.04em; }
+
+.setup-actions { display: flex; justify-content: center; gap: 1.2em; margin-top: 1.2em; }
+.plate-btn.rp { --c: 0.7em; padding: 0.75em 2.2em; font-size: 1em; letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.5em; }
+.start-btn { font-size: 1.3em !important; padding: 0.7em 2.8em !important; }
+.start-btn svg { width: 1.3em; height: 1.3em; }
+.start-btn { animation: start-pulse 2.2s ease-in-out infinite; }
+@keyframes start-pulse { 50% { filter: brightness(1.18) drop-shadow(0 0 0.6em rgba(255, 200, 100, 0.7)); } }
+/* Loading screen (also styled inline in index.html so it shows before JS) */
+.loading {
+  position: fixed; inset: 0; z-index: 30;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  background: radial-gradient(ellipse at center, #5a0b12 0%, #2a0508 55%, #120b08 100%);
+  font-family: 'Cinzel', Georgia, serif; color: var(--cream);
+  transition: opacity 0.5s ease;
+}
+.loading.done { opacity: 0; pointer-events: none; }
+
+/* ===== Menu navigation: Back + Home (top-left), points + Settings cog (top-right) ===== */
+.menu-nav { position: absolute; left: 1.4%; top: 3%; display: flex; gap: 0.9em; }
+.menu-nav .medal { width: 3.6em; height: 3.6em; }
+.menu-right { position: absolute; right: 1.6%; top: 3.4%; display: flex; align-items: center; gap: 0.7em; }
+.menu-right .menu-points { position: static; }
+.menu-right .medal-small { width: 3.2em; height: 3.2em; }
+
+/* ===== Play screen strip under the painted PLAY button ===== */
+.play-strip {
+  --c: 0.7em;
+  position: absolute; left: 50%; top: 89.6%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.35em;
+  padding: 0.45em 1.2em 0.55em;
+  font-size: 0.82em;
+}
+.play-info { display: flex; gap: 0.5em; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+.play-arena { color: var(--gold); }
+.play-side.side-w { color: #ffb3a6; }
+.play-side.side-b { color: #d0b2ff; }
+.play-options { display: flex; gap: 0.8em; }
+.play-options .seg-btn { font-size: 0.85em; padding: 0.3em 0.8em; }
+.seg.disabled { opacity: 0.35; pointer-events: none; }
+
+/* ===== Settings card (menus and in game) ===== */
+.settings-panel { width: 34em; max-width: 92%; text-align: left; }
+.settings-body { max-height: 64vh; overflow-y: auto; padding-right: 0.3em; }
+.set-section { display: flex; justify-content: space-between; align-items: baseline; margin: 0.9em 0 0.2em; color: var(--gold); font-weight: 700; font-size: 0.8em; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(242, 199, 107, 0.4); }
+.set-note { font-family: Georgia, serif; text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--cream); opacity: 0.75; }
+.set-block { padding: 0.45em 0; border-bottom: 1px solid rgba(242, 199, 107, 0.18); }
+.set-challenges { display: flex; justify-content: space-between; gap: 0.3em; margin-top: 0.4em; }
+.set-challenges .medal-wrap { flex: 1; min-width: 0; }
+.set-challenges .medal-label { font-size: 0.6em; text-align: center; line-height: 1.15; }
+.set-challenges .medal-stars { font-size: 0.65em; color: var(--gold); text-align: center; }
+.set-challenge-desc { margin-top: 0.4em; font-family: Georgia, serif; font-size: 0.85em; opacity: 0.9; }
+.switch-btn { background: none; border: 0; padding: 0; cursor: pointer; }
+.switch-btn .switch { display: block; width: 2.6em; height: 1.4em; border-radius: 0.7em; background: #3a302a; border: 0.12em solid var(--gold-deep); position: relative; transition: background 0.2s; }
+.switch-btn .switch::after { content: ''; position: absolute; top: 0.1em; left: 0.12em; width: 1em; height: 1em; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #fff1b8, #a8701f); transition: transform 0.2s; }
+.switch-btn[aria-pressed='true'] .switch { background: #2f9e4f; }
+.switch-btn[aria-pressed='true'] .switch::after { transform: translateX(1.2em); }
+.menu-modal .settings-panel { font-size: 15px; }
+/* The settings list scrolls: keep the scrollbar visible and gold so it is easy to spot. */
+.settings-body { scrollbar-width: thin; scrollbar-color: var(--gold-deep) rgba(0, 0, 0, 0.3); }
+.settings-body::-webkit-scrollbar { width: 0.55em; }
+.settings-body::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); border-radius: 0.3em; }
+.settings-body::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gold), var(--gold-deep)); border-radius: 0.3em; }
+
+/* Intro video: full-screen, shown whole on black (never cropped), with a Skip button. */
+.intro-video { position: fixed; inset: 0; z-index: 40; background: #000; opacity: 0; transition: opacity 0.35s; cursor: pointer; }
+.intro-video.shown { opacity: 1; }
+.intro-video video { width: 100%; height: 100%; object-fit: contain; display: block; }
+.intro-skip { position: absolute; right: 2.5vmin; bottom: 2.5vmin; font-size: max(12px, 2.2vmin); }

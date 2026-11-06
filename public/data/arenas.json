@@ -1,0 +1,475 @@
+{
+  "notes": "Runtime look of each arena. Scene images and camera come from public/assets/scene/<prefix>_* (tools/build_arena.py). palette = linear albedo of the 3D board's marble; weather = snow | sand | moss | none (painted onto the board); strip = gold lip colour; sun/hemi/rim = lights (colour, intensity, position); ambience = petals | embers | snow | fireflies | dust; frameOffset must match tools/arenas.json.",
+  "arenas": {
+    "palace-gardens": {
+      "name": "Palace Gardens",
+      "prefix": "palace_garden",
+      "frameOffset": 0.42,
+      "glows": [
+        [
+          737,
+          62,
+          38
+        ],
+        [
+          1098,
+          178,
+          40
+        ],
+        [
+          1438,
+          318,
+          40
+        ],
+        [
+          1340,
+          455,
+          22
+        ]
+      ],
+      "palette": {
+        "light": [
+          0.84,
+          0.55,
+          0.44
+        ],
+        "lightVein": [
+          0.46,
+          0.29,
+          0.24
+        ],
+        "dark": [
+          0.003,
+          0.036,
+          0.11
+        ],
+        "darkVein": [
+          0.55,
+          0.3,
+          0.12
+        ]
+      },
+      "weather": "none",
+      "strip": "#e8c98e",
+      "cover": "#8c7660",
+      "hemi": [
+        "#ffc796",
+        "#5e3d24",
+        0.9
+      ],
+      "sun": [
+        "#ffb878",
+        3.0,
+        [
+          -9,
+          8.5,
+          3.5
+        ]
+      ],
+      "rim": [
+        "#ff9a6a",
+        1.2,
+        [
+          8,
+          4,
+          -9
+        ]
+      ],
+      "grade": {
+        "gain": [
+          1.04,
+          0.98,
+          0.9
+        ],
+        "lift": [
+          0.003,
+          0.0015,
+          0
+        ],
+        "exposure": 1.0
+      },
+      "ambience": "petals"
+    },
+    "dark-kingdom": {
+      "name": "Dark Kingdom",
+      "prefix": "dark_kingdom",
+      "frameOffset": 0.3,
+      "glows": [
+        [
+          740,
+          60,
+          40
+        ],
+        [
+          1470,
+          320,
+          40
+        ],
+        [
+          290,
+          120,
+          26
+        ],
+        [
+          1265,
+          315,
+          22
+        ]
+      ],
+      "palette": {
+        "light": [
+          0.5959,
+          0.5168,
+          0.2521
+        ],
+        "lightVein": [
+          0.36,
+          0.28,
+          0.3
+        ],
+        "dark": [
+          0.0289,
+          0.0484,
+          0.002
+        ],
+        "darkVein": [
+          0.2,
+          0.12,
+          0.06
+        ]
+      },
+      "weather": "none",
+      "strip": "#d9b46a",
+      "cover": "#4a4048",
+      "hemi": [
+        "#d0c4c8",
+        "#2a2228",
+        0.8
+      ],
+      "sun": [
+        "#ffb070",
+        2.4,
+        [
+          -7,
+          9,
+          4
+        ]
+      ],
+      "rim": [
+        "#c8a0ff",
+        0.5,
+        [
+          8,
+          5,
+          -9
+        ]
+      ],
+      "grade": {
+        "gain": [
+          1.0,
+          0.98,
+          0.98
+        ],
+        "lift": [
+          0,
+          0,
+          0
+        ],
+        "exposure": 0.95
+      },
+      "ambience": "embers"
+    },
+    "frozen-kingdom": {
+      "name": "Frozen Kingdom",
+      "prefix": "frozen_kingdom",
+      "frameOffset": 0.3,
+      "glows": [
+        [
+          915,
+          125,
+          30
+        ],
+        [
+          420,
+          105,
+          30
+        ],
+        [
+          135,
+          320,
+          30
+        ],
+        [
+          1395,
+          440,
+          28
+        ],
+        [
+          1485,
+          755,
+          36
+        ],
+        [
+          215,
+          600,
+          24
+        ]
+      ],
+      "palette": {
+        "light": [
+          1.0,
+          0.6921,
+          0.8559
+        ],
+        "lightVein": [
+          0.5,
+          0.58,
+          0.72
+        ],
+        "dark": [
+          0.0499,
+          0.0702,
+          0.134
+        ],
+        "darkVein": [
+          0.07,
+          0.1,
+          0.17
+        ]
+      },
+      "weather": "snow",
+      "strip": "#e6d29a",
+      "cover": "#a7b4c8",
+      "hemi": [
+        "#d6e4f4",
+        "#4a5a70",
+        0.8
+      ],
+      "sun": [
+        "#fff2e0",
+        2.8,
+        [
+          9,
+          11,
+          3
+        ]
+      ],
+      "rim": [
+        "#9fd4ff",
+        1.0,
+        [
+          -8,
+          4,
+          -8
+        ]
+      ],
+      "grade": {
+        "gain": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "lift": [
+          0,
+          0,
+          0
+        ],
+        "exposure": 1.0
+      },
+      "ambience": "snow"
+    },
+    "jungle-temple": {
+      "name": "Jungle Temple",
+      "prefix": "jungle_temple",
+      "frameOffset": 0.3,
+      "glows": [
+        [
+          912,
+          140,
+          30
+        ],
+        [
+          1040,
+          195,
+          28
+        ],
+        [
+          218,
+          345,
+          28
+        ],
+        [
+          1475,
+          520,
+          32
+        ],
+        [
+          272,
+          720,
+          30
+        ],
+        [
+          618,
+          845,
+          32
+        ]
+      ],
+      "palette": {
+        "light": [
+          0.753,
+          0.3598,
+          0.2002
+        ],
+        "lightVein": [
+          0.38,
+          0.3,
+          0.2
+        ],
+        "dark": [
+          0.0776,
+          0.0678,
+          0.0692
+        ],
+        "darkVein": [
+          0.05,
+          0.06,
+          0.025
+        ]
+      },
+      "weather": "moss",
+      "strip": "#c79a4a",
+      "cover": "#6a5a40",
+      "hemi": [
+        "#f0e6c8",
+        "#3a3420",
+        0.8
+      ],
+      "sun": [
+        "#ffd59a",
+        2.5,
+        [
+          8,
+          11,
+          3
+        ]
+      ],
+      "rim": [
+        "#ffe0a0",
+        0.9,
+        [
+          -8,
+          5,
+          -8
+        ]
+      ],
+      "grade": {
+        "gain": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "lift": [
+          0,
+          0,
+          0
+        ],
+        "exposure": 1.0
+      },
+      "ambience": "fireflies"
+    },
+    "arabian-palace": {
+      "name": "Arabian Palace",
+      "prefix": "arabian_palace",
+      "frameOffset": 0.3,
+      "glows": [
+        [
+          915,
+          130,
+          30
+        ],
+        [
+          125,
+          185,
+          34
+        ],
+        [
+          1460,
+          440,
+          36
+        ],
+        [
+          1475,
+          780,
+          40
+        ],
+        [
+          237,
+          935,
+          34
+        ]
+      ],
+      "palette": {
+        "light": [
+          0.5302,
+          0.4617,
+          0.4627
+        ],
+        "lightVein": [
+          0.58,
+          0.38,
+          0.26
+        ],
+        "dark": [
+          0.0577,
+          0.1006,
+          0.1915
+        ],
+        "darkVein": [
+          0.13,
+          0.07,
+          0.03
+        ]
+      },
+      "weather": "sand",
+      "strip": "#e8c070",
+      "cover": "#a07850",
+      "hemi": [
+        "#ffc090",
+        "#6a3a28",
+        0.95
+      ],
+      "sun": [
+        "#ffa45c",
+        3.2,
+        [
+          10,
+          8,
+          3
+        ]
+      ],
+      "rim": [
+        "#ff7a90",
+        1.2,
+        [
+          -8,
+          4,
+          -8
+        ]
+      ],
+      "grade": {
+        "gain": [
+          1.03,
+          0.98,
+          0.94
+        ],
+        "lift": [
+          0,
+          0,
+          0
+        ],
+        "exposure": 1.0
+      },
+      "ambience": "dust"
+    }
+  }
+}

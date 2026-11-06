@@ -1,0 +1,12 @@
+node_modules/
+dist/
+tools/work/
+*.log
+test-results/
+.vite/
+tools/.venv/
+*.webm
+public/assets/video/.from-drop-folder
+# Automated test screenshots (large): kept locally, not in the repository
+docs/screenshots/
+!public/assets/video/intro.webm

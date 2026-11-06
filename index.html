@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Masters</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <style>
+      /* Inline so the loading screen shows before any script runs. */
+      #loading {
+        position: fixed; inset: 0; z-index: 30;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+        background: radial-gradient(ellipse at center, #5a0b12 0%, #2a0508 55%, #120b08 100%);
+        font-family: 'Cinzel', Georgia, serif; color: #fbf0d9;
+        transition: opacity 0.5s ease;
+      }
+      #loading.done { opacity: 0; pointer-events: none; }
+      #loading .crown { font-size: 64px; color: #f2c76b; text-shadow: 0 0 24px rgba(242, 199, 107, 0.7); animation: bob 1.6s ease-in-out infinite; }
+      #loading .title { font-size: 44px; font-weight: 700; letter-spacing: 0.06em; color: #f2c76b; text-shadow: 0 3px 0 #3a0508, 0 6px 18px #000; }
+      #loading .track { width: min(420px, 70vw); height: 14px; border: 2px solid #b9832e; border-radius: 10px; background: rgba(0, 0, 0, 0.35); overflow: hidden; }
+      #loading-bar { width: 4%; height: 100%; background: linear-gradient(90deg, #b9832e, #ffe3a3); transition: width 0.3s ease; }
+      #loading-label { font-size: 16px; letter-spacing: 0.08em; opacity: 0.85; min-height: 1.2em; }
+      @keyframes bob { 50% { transform: translateY(-8px); } }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="loading">
+      <div class="crown">&#9819;</div>
+      <div class="title">Chess Masters</div>
+      <div class="track"><div id="loading-bar"></div></div>
+      <div id="loading-label">Opening the palace gates&hellip;</div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

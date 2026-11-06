@@ -1,0 +1,31 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #120b08;
+  color: #f4e6c8;
+  overflow: hidden;
+  font-family: 'Cinzel', Georgia, serif;
+}
+#app {
+  position: fixed;
+  inset: 0;
+}
+.stage-root {
+  background-color: #120b08;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.stage-frame {
+  position: absolute;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+}
+.stage-frame canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.stage-frame canvas.ambience {
+  pointer-events: none;
+}
